@@ -9,6 +9,24 @@
 
 ## About Laravel
 
+## API Authentication
+
+Endpoint rekam medis pada `/api/cardiovascular/*` membutuhkan JWT. Buat token
+dengan mengirim `POST /api/auth/login` menggunakan JSON berikut:
+
+```json
+{
+    "email": "dokter@kardio.com",
+    "password": "password123"
+}
+```
+
+Gunakan token pada header `Authorization: Bearer <token>` untuk mengakses
+`GET /api/cardiovascular`. Request tanpa token valid akan menghasilkan `401
+Unauthorized`. Endpoint publik untuk registrasi adalah `POST /api/auth/register`;
+endpoint privat lainnya adalah `GET /api/auth/me`, `POST /api/auth/logout`, dan
+`POST /api/auth/refresh`.
+
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
 
 - [Simple, fast routing engine](https://laravel.com/docs/routing).
